@@ -40,4 +40,4 @@ ext {
     descContent = 'skin-support 基础控件换肤支持包'
 }
 
-apply from: '../../publishing_maven.gradle'
+// apply from: '../../publishing_maven.gradle'
