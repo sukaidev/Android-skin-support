@@ -2,7 +2,7 @@
 
 中文 | [In English](docs/README.md) 
 
-[![skin-support](https://img.shields.io/badge/release-v4.0.5-green.svg)](http://jcenter.bintray.com/skin/support)
+[![skin-support](https://jitpack.io/v/JingZhuanDuoYing/Android-skin-support.svg)](https://jitpack.io/#JingZhuanDuoYing/Android-skin-support)
 ![build](https://img.shields.io/badge/build-passing-green.svg)
 ![license](https://img.shields.io/badge/license-mit-blue.svg)
 
@@ -119,56 +119,15 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 ### 导入:
 
-#### support library
-
-如果项目中还在使用support库，添加以下依赖
-```xml
-implementation 'skin.support:skin-support:3.1.4'                   // skin-support 基础控件支持
-implementation 'skin.support:skin-support-design:3.1.4'            // skin-support-design material design 控件支持[可选]
-implementation 'skin.support:skin-support-cardview:3.1.4'          // skin-support-cardview CardView 控件支持[可选]
-implementation 'skin.support:skin-support-constraint-layout:3.1.4' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
-```
-
-在Application的onCreate中初始化
-    
-```java
-@Override
-public void onCreate() {
-    super.onCreate();
-    SkinCompatManager.withoutActivity(this)                         // 基础控件换肤初始化
-            .addInflater(new SkinMaterialViewInflater())            // material design 控件换肤初始化[可选]
-            .addInflater(new SkinConstraintViewInflater())          // ConstraintLayout 控件换肤初始化[可选]
-            .addInflater(new SkinCardViewInflater())                // CardView v7 控件换肤初始化[可选]
-            .setSkinStatusBarColorEnable(false)                     // 关闭状态栏换肤，默认打开[可选]
-            .setSkinWindowBackgroundEnable(false)                   // 关闭windowBackground换肤，默认打开[可选]
-            .loadSkin();
-}
-```
-
-> 如果项目中使用的Activity继承自AppCompatActivity，需要重载getDelegate()方法
-
-```java
-@NonNull
-@Override
-public AppCompatDelegate getDelegate() {
-    return SkinAppCompatDelegateImpl.get(this, this);
-}
-```
-
 #### AndroidX support:
 
 如果项目中使用了[AndroidX](https://developer.android.google.cn/topic/libraries/support-library/androidx-overview), 添加以下依赖
-```xml
-implementation 'skin.support:skin-support:4.0.5'                   // skin-support
-implementation 'skin.support:skin-support-appcompat:4.0.5'         // skin-support 基础控件支持
-implementation 'skin.support:skin-support-design:4.0.5'            // skin-support-design material design 控件支持[可选]
-implementation 'skin.support:skin-support-cardview:4.0.5'          // skin-support-cardview CardView 控件支持[可选]
-implementation 'skin.support:skin-support-constraint-layout:4.0.5' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
-```
-
-*⚠️ 从3.x.x迁移至4.0.5+, 解耦了换肤库对appcompat包的依赖，需要新增以下代码*
 ```gradle
-implementation 'skin.support:skin-support-appcompat:4.0.5'         // skin-support 基础控件支持
+implementation 'com.github.JingZhuanDuoYing.Android-skin-support:skin-support:5.0.0'                  // skin-support
+implementation 'com.github.JingZhuanDuoYing.Android-skin-support:skin-support-appcompat:5.0.0'         // skin-support 基础控件支持
+implementation 'com.github.JingZhuanDuoYing.Android-skin-support:skin-support-design:5.0.0'            // skin-support-design material design 控件支持[可选]
+implementation 'com.github.JingZhuanDuoYing.Android-skin-support:skin-support-cardview:5.0.0'          // skin-support-cardview CardView 控件支持[可选]
+implementation 'com.github.JingZhuanDuoYing.Android-skin-support:skin-support-constraint-layout:5.0.0' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 ```
 
 在Application的onCreate中初始化
