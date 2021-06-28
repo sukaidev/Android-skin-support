@@ -38,7 +38,11 @@ public class SkinObservable {
         }
 
         for (int i = arrLocal.length-1; i>=0; i--) {
-            arrLocal[i].updateSkin(this, arg);
+            try {
+                arrLocal[i].updateSkin(this, arg);
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
